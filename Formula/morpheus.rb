@@ -1,3 +1,5 @@
+require 'etc'
+
 class Morpheus < Formula
   desc "IoP Morpheus demo"
   homepage "https://iop.global/"
@@ -9,7 +11,7 @@ class Morpheus < Formula
   depends_on "scons"
 
   def install
-    system "scons"
+    system "scons", "#{Etc.nprocessors}"
 
     bin.install "target/morpheusd"
     bin.install "target/morpheus-crawler"

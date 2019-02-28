@@ -2,7 +2,7 @@ class Morpheus < Formula
   desc "IoP Morpheus demo"
   homepage "https://iop.global/"
   url "https://github.com/Internet-of-People/homebrew-morpheus/raw/master/Releases/morpheus-0.1.tar.gz"
-  sha256 "f149d1ace19248efca5f04c3514ca8ae9599fd80b29761b175d8f451113de204"
+  sha256 "297d050dd7da52712807d5b3b32235434b65a5f9980aef98ed122464db8bf5d0"
   depends_on "botan"
   depends_on "open-scene-graph"
   depends_on "rocksdb"
@@ -12,10 +12,11 @@ class Morpheus < Formula
     system "scons"
 
     bin.install "target/morpheusd"
-    bin.install "target/visualization"
+    bin.install "target/morpheus-crawler"
+    bin.install "target/morpheus-test"
   end
 
   test do
-    system "target/test"
+    system "target/morpheus-test"
   end
 end
